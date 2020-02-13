@@ -24,6 +24,19 @@ EOF
 
 `/usr/local/bin/your_local_script.sh` is the script that is going to be executes.
 
+If you want to send a message to a Slack channel in case of termination, add some environment variables:
+
+```
+...
+  environment:
+    - SLACK_URL='https://hooks.slack.com/services/123456789'
+    - SLACK_CHANNEL='your-cool-channel'
+    - SLACK_USERNAME='your-cool-user'
+    - SLACK_TEXT='I just wanted to say that...'
+````
+
+Specify the channel name without `#`.
+
 #### 2. Enable the trap
 
 `sudo ros service enable /var/lib/rancher/conf/trap.yml`
