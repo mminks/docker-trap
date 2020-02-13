@@ -3,7 +3,7 @@
 die()
 {
     if [ -n "${SLACK_CHANNEL}" ] && [ -n "${SLACK_URL}" ] && [ -n "${SLACK_USERNAME}" ] && [ -n "${SLACK_TEXT}" ]; then
-      curl -X POST --data-urlencode "payload={\"channel\": \"#${SLACK_CHANNEL}\", \"username\": \"${SLACK_USERNAME}\", \"text\": \"${SLACK_TEXT}\", \"icon_emoji\": \":ghost:\"}" ${SLACK_URL}
+      curl -X POST --data-urlencode "payload={\"channel\": \"#${SLACK_CHANNEL}\", \"username\": \"${SLACK_USERNAME}\", \"text\": \"[$(hostname)] ${SLACK_TEXT}\", \"icon_emoji\": \":ghost:\"}" ${SLACK_URL}
     fi
 
     bash /run_trap_code.sh
