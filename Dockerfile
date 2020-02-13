@@ -5,6 +5,6 @@ ADD trap.sh /
 RUN set -exo pipefail \
     && apk add --no-cache \
         curl \
-        jq \
+        jq
 
 ENTRYPOINT ["bash", "/trap.sh"]
