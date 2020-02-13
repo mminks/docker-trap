@@ -2,15 +2,13 @@
 
 die()
 {
-    if [ -n "${SLACK_CHANNEL}" ] && [ -n "${SLACK_URL}" ] && [ -n "${SLACK_USERNAME}" ] && [ -n "${SLACK_TEXT}" ]; then
-      echo "Sending Slack notification..."
-
-      curl -X POST --data-urlencode "payload={\"channel\": \"#${SLACK_CHANNEL}\", \"username\": \"${SLACK_USERNAME}\", \"text\": \"[$(hostname)] ${SLACK_TEXT}\", \"icon_emoji\": \":ghost:\"}" ${SLACK_URL};
-    fi
-
     echo "Running the trap..."
 
-    bash /run_trap_code.sh
+    RESULT=$(bash /run_trap_code.sh)
+
+    if [ -n "${SLACK_CHANNEL}" ] && [ -n "${SLACK_URL}" ] && [ -n "${SLACK_USERNAME}" ]; then
+      curl -X POST --data-urlencode "payload={\"channel\": \"#${SLACK_CHANNEL}\", \"username\": \"${SLACK_USERNAME}\", \"text\": \"[$(hostname)] ${RESULT}\", \"icon_emoji\": \":ghost:\"}" ${SLACK_URL};
+    fi
 
     exit 0
 }

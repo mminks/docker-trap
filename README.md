@@ -32,7 +32,6 @@ If you want to send a message to a Slack channel in case of termination, add som
     - SLACK_URL=https://hooks.slack.com/services/123456789
     - SLACK_CHANNEL=your-cool-channel
     - SLACK_USERNAME=your-cool-user
-    - SLACK_TEXT=I just wanted to say that...
 ````
 
 Specify the channel name without `#`.
