@@ -13,7 +13,7 @@ die()
     exit 0
 }
 
-trap die TERM
+trap die SIGTERM
 
 while true
 do
