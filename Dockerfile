@@ -9,6 +9,9 @@ RUN apt-get update \
         unzip \
         curl \
         jq \
+    && curl -L https://github.com/barnybug/cli53/releases/download/0.8.17/cli53-linux-amd64 \
+        -o /usr/local/bin/cli53 \
+    && chmod +x /usr/local/bin/cli53 \
     && curl https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip -o /tmp/awscliv2.zip \
     && unzip -d /tmp /tmp/awscliv2.zip \
     && /tmp/aws/install \
