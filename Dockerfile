@@ -20,4 +20,5 @@ RUN apt-get update \
     && apt-get autoremove -y \
     && rm -rf /var/lib/{apt,dpkg,cache,log}/
 
-ENTRYPOINT ["bash", "/trap.sh"]
+ENTRYPOINT ["/bin/bash", "-c"]
+CMD ["/trap.sh"]
